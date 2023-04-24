@@ -5,13 +5,13 @@ import random as r
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import requests
-from zerochan import ZeroChan, PictureSize, SortBy
+import string
 
-zerochan_instance = ZeroChan()
+
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents().all())
 
-BOT_TOKEN = 
+BOT_TOKEN = "MTAzOTA2ODA0MjY2NTEzNjE5OA.GDQf2x.9VCCsQxX2flPlZCPvyWLjnbsas_B23KPdYgCpQ"
 
 @bot.event
 async def on_ready():
@@ -34,20 +34,21 @@ async def whatsthat(ctx):
     await ctx.send("GIRL THATS A BOOTY HOLE!")
 
 @bot.command()
+async def rimage(ctx):
+    while True:
+        urlImgurStringLength = 5
+        temp = ''.join([r.choice(
+                            string.ascii_letters)
+                            for n in range(urlImgurStringLength)])
+        finURL = ("https://imgur.com/" + temp)
+        lengthTest = len(requests.post(finURL).content)
+        if lengthTest != 4323:
+            await ctx.send(finURL)
+            break
+
+@bot.command()
 async def misato(ctx):
-    zerochan = ZeroChan()
-
-    zerochan.search("Katsuragi Misato")
-    zerochan.size(PictureSize.BIGGER_AND_BETTER)
-    pagenum = r.randint(1, 10)
-    zerochan.page(pagenum)
-    zerochan.authorize("hjsaf7afkjsaf78", "127364")
-    data = zerochan.pics()
-    list = []
-    for img in data.images:
-        list.append(img.url)
-        print(img.url)
-
+    await ctx.send("Under Construction")
 
 
 bot.run(BOT_TOKEN)
