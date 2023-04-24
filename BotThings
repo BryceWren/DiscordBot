@@ -11,7 +11,7 @@ import string
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents().all())
 
-BOT_TOKEN = "MTAzOTA2ODA0MjY2NTEzNjE5OA.GDQf2x.9VCCsQxX2flPlZCPvyWLjnbsas_B23KPdYgCpQ"
+BOT_TOKEN = ""
 
 @bot.event
 async def on_ready():
